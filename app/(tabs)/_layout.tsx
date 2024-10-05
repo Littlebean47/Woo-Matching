@@ -42,20 +42,20 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="Settings"
+        options={{
+          title: 'Roulette',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'cards-playing-heart' : 'cards-playing-heart-outline'} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="Profile"
         options={{
           title: 'Profile',
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'account' : 'account-outline'} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="Settings"
-        options={{
-          title: 'Settings',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'cog' : 'cog-outline'} color={color} />
           ),
         }}
       />

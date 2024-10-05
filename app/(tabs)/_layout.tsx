@@ -42,7 +42,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="Settings"
+        name="Roulette"
         options={{
           title: 'Roulette',
           tabBarIcon: ({ color, focused }) => (

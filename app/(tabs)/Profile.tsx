@@ -1,10 +1,13 @@
-import { Text, View, Dimensions } from "react-native";
+import { View, Dimensions } from "react-native";
 import { Avatar } from 'react-native-paper';
 import { StyleSheet } from 'react-native';
 import { ThemedView } from "@/components/ThemedView";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { ThemedText } from "@/components/ThemedText";
 
 const { width } = Dimensions.get('window'); // Get the device width
+const { height } = Dimensions.get('window'); // Get the device width
+
 
 const styles = StyleSheet.create({
   avatarContainer: {
@@ -15,11 +18,34 @@ const styles = StyleSheet.create({
     paddingVertical: 20
   },
   avatar: {
-    margin: width * 0.05, // margin based on screen width
+    margin: width * 0.02, // margin based on screen width
   },
   settingsIcon: {
     marginTop: 25,
     marginRight: width * 0.05, // margin based on screen width
+  },
+  text: {
+    color: "#757575",
+    marginLeft: width * .03,
+    lineHeight: 30
+  },
+  subcriptionBox: {
+    margin: width * 0.05
+  },
+  upgradeBox: {
+    backgroundColor: "#e8b931",
+    width: width * .7,
+    flexDirection: 'row',
+    padding: width * .05,
+    borderRadius: 10,
+    justifyContent: 'flex-start',
+  },
+  upgradeBoxContainer: {
+    alignItems: 'center',
+    marginTop: height * .02
+  },
+  upgradeStarIcon: {
+    marginRight: width * .04
   }
 });
 
@@ -33,12 +59,18 @@ function Profile() {
         />
         <MaterialCommunityIcons name="cog-outline" size={45} color="#a8a8a8" style={styles.settingsIcon} />
       </View>
-      <View>
-        {/* Title */}
-        {/* Text */}
+      <View style={styles.subcriptionBox}>
+        <ThemedText type="title">Subscription</ThemedText>
+        <ThemedText style={styles.text}>Upgrade the Nest</ThemedText>
       </View>
       <View>
         {/* Upgrade Button */}
+        <View style={styles.upgradeBoxContainer}>
+          <View style={styles.upgradeBox}>
+            <MaterialCommunityIcons name="star-outline" size={24} color="black" style={styles.upgradeStarIcon} />
+            <ThemedText>Get WOO Plus</ThemedText>
+          </View>
+        </View>
       </View>
     </ThemedView>
   );

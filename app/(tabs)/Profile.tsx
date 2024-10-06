@@ -1,6 +1,6 @@
 import { View, Dimensions } from "react-native";
 import { Avatar } from 'react-native-paper';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import { ThemedView } from "@/components/ThemedView";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { ThemedText } from "@/components/ThemedText";
@@ -53,24 +53,29 @@ function Profile() {
   return (
     <ThemedView>
       <View style={styles.avatarContainer}>
-        <Avatar.Image source={require("../../assets/images/gettyimages.jpg")}
-          size={width * 0.35}  // 35% of screen width
-          style={styles.avatar}
-        />
-        <MaterialCommunityIcons name="cog-outline" size={45} color="#a8a8a8" style={styles.settingsIcon} />
+        <TouchableOpacity onPress={() => console.log("TAKE ME TO PROFILE VIEW")}>
+          <Avatar.Image source={require("../../assets/images/gettyimages.jpg")}
+            size={width * 0.35}  // 35% of screen width
+            style={styles.avatar}
+          />
+        </TouchableOpacity>
+        {/* TODO: Create settings page / modal*/}
+        <TouchableOpacity onPress={() => console.log("TAKE ME TO SETTIGNS")}>
+          <MaterialCommunityIcons name="cog-outline" size={45} color="#a8a8a8" style={styles.settingsIcon} />
+        </TouchableOpacity>
       </View>
       <View style={styles.subcriptionBox}>
         <ThemedText type="title">Subscription</ThemedText>
         <ThemedText style={styles.text}>Upgrade the Nest</ThemedText>
       </View>
       <View>
-        {/* Upgrade Button */}
-        <View style={styles.upgradeBoxContainer}>
+        {/* TODO: Create sub details page / modal*/}
+        <TouchableOpacity style={styles.upgradeBoxContainer} onPress={() => console.log("TAKE ME TO SUB DETAILS")}>
           <View style={styles.upgradeBox}>
             <MaterialCommunityIcons name="star-outline" size={24} color="black" style={styles.upgradeStarIcon} />
             <ThemedText>Get WOO Plus</ThemedText>
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
     </ThemedView>
   );

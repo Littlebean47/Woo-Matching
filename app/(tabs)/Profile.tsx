@@ -4,6 +4,7 @@ import { StyleSheet, TouchableOpacity } from 'react-native';
 import { ThemedView } from "@/components/ThemedView";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { ThemedText } from "@/components/ThemedText";
+import { Link } from "expo-router";
 
 const { width } = Dimensions.get('window'); // Get the device width
 const { height } = Dimensions.get('window'); // Get the device width
@@ -54,10 +55,12 @@ function Profile() {
     <ThemedView>
       <View style={styles.avatarContainer}>
         <TouchableOpacity onPress={() => console.log("TAKE ME TO PROFILE VIEW")}>
-          <Avatar.Image source={require("../../assets/images/gettyimages.jpg")}
-            size={width * 0.35}  // 35% of screen width
-            style={styles.avatar}
-          />
+          <Link href={"/ProfileView"}>
+            <Avatar.Image source={require("../../assets/images/gettyimages.jpg")}
+              size={width * 0.35}  // 35% of screen width
+              style={styles.avatar}
+            />
+          </Link>
         </TouchableOpacity>
         {/* TODO: Create settings page / modal*/}
         <TouchableOpacity onPress={() => console.log("TAKE ME TO SETTIGNS")}>
